@@ -6,7 +6,7 @@ var PATH = {
 	ASSETS : {
 		FONTS : './html/assets/fonts',
 		IMAGES : './html/assets/images',
-		STYLE : './html/assets/css'
+		STYLE : './html/assets/scss'
 	}
 }
 
