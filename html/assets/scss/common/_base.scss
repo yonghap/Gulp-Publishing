@@ -12,3 +12,14 @@ a {
 img {
 	max-width:100%;
 }
+.blind {
+	position:absolute;
+	overflow:hidden;
+	top:0;
+	left:0;
+	width:1px;
+	height:1px;
+	font-size:0;
+	line-height:0;
+	visibility:hidden;
+}

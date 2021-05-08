@@ -1,3 +1,10 @@
 @charset "UTF-8";
-$primary-color:#333;
-$point-color:#0080cc;
+
+/// Color
+/// @type Color
+$color:#333;
+$color--point:#0080cc;
+
+/// Font
+/// @type Font
+$fontfamily:'Noto Sans KR','맑은 고딕','Malgun Gothic';

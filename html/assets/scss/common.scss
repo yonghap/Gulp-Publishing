@@ -6,5 +6,9 @@
 @import 'common/variables';
 
 body {
-	color:$primary-color;
+	color:$color;
+}
+
+p {
+	@include ellipsis(2);
 }
