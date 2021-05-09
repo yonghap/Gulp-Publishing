@@ -1,24 +1,34 @@
 @charset "UTF-8";
-
-
-/// Ellipsis
-/// @type Text
-@mixin ellipsis($line: 1) {
-	@if ($line == 1) {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	} @else {
-		display: -webkit-box;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: $line;
-	}
+/// mixin
+///
+/// Absolute
+/// @type position
+@mixin absolute() {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%
 }
 
 /// Ellipsis
-/// @type Float
+/// @type text
+@mixin ellipsis($line: 1) {
+	@if ($line == 1) {
+		overflow:hidden;
+		text-overflow:ellipsis;
+		white-space:nowrap;
+	} @else {
+		display:-webkit-box;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		-webkit-box-orient:vertical;
+		-webkit-line-clamp:$line;
+	}
+}
+
+/// Clearfix
+/// @type clear
 @mixin clearfix {
 	&::after {
 		content: "";
