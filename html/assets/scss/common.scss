@@ -7,8 +7,9 @@
 
 body {
 	color:$color;
+	@include clearfix;
 }
 
 p {
-	@include ellipsis(2);
+	@include absolute(0,0,500px,500px);
 }
