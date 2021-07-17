@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var nodemon = require('gulp-nodemon');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 
 // origin source
 var PATH = {
@@ -50,7 +50,9 @@ gulp.task('nodemon:start', () => {
 gulp.task('html', () => {
 	return new Promise(resolve => {
 		gulp.src(PATH.HTML + '/*.html')
-			.pipe(gulp.dest(DEST_PATH.HTML));
+			.pipe(gulp.dest(DEST_PATH.HTML))
+			.pipe(browserSync.reload({ stream : true }));
+
 		resolve();
 	});
 });
@@ -58,14 +60,14 @@ gulp.task('html', () => {
 gulp.task('watch', () => {
 	return new Promise(resolve => {
 		gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
-		gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series(['scss']));
+		gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series(['sass']));
 		resolve();
 	});
 });
 // browser sync
 gulp.task('browserSync', () => {
 	return new Promise(resolve => {
-		browserSync.init(null, {proxy: 'http://localhost:8005', port: 8006});
+		browserSync.init({proxy: 'http://localhost:8005', port: 8006});
 		resolve();
 	});
 });
