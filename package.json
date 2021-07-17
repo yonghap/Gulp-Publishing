@@ -16,10 +16,15 @@
     "url": "https://github.com/yonghap/Gulp-Publishing/issues"
   },
   "homepage": "https://github.com/yonghap/Gulp-Publishing#readme",
-  "dependencies": {},
+  "dependencies": {
+    "ejs": "^3.1.6"
+  },
   "devDependencies": {
+    "express": "^4.17.1",
     "gulp": "^4.0.2",
+    "gulp-nodemon": "^2.5.0",
     "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^3.0.0"
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-watch": "^5.0.1"
   }
 }
