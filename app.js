@@ -6,6 +6,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use('/', express.static(`${__dirname}/dist/`));
 app.get('/', (req, res) => {
+	console.log(res);
 	res.render('index', {});
 });
 var server = app.listen(8005, () => {
