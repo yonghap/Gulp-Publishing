@@ -1,14 +1,16 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var nodemon = require('gulp-nodemon');
-var browserSync = require('browser-sync').create();
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var imagemin = require('gulp-imagemin');
-var del = require('del');
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+	nodemon = require('gulp-nodemon'),
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
+	rename = require('gulp-rename'),
+	imagemin = require('gulp-imagemin'),
+	del = require('del'),
+	browserSync = require('browser-sync').create();
 
-// origin source
+/**
+ * 작업 경로
+ */
 var PATH = {
 	HTML: './workspace/html',
 	ASSETS: {
@@ -19,8 +21,9 @@ var PATH = {
 		LIB: './workspace/assets/lib'
 	}
 }
-
-// dist
+/**
+ * 산출물 경로
+ */
 var DEST_PATH = {
 	HTML: './dist',
 	ASSETS: {
@@ -31,14 +34,13 @@ var DEST_PATH = {
 		LIB: './dist/assets/lib'
 	}
 }
-
-// sass
+/**
+ * @task : Sass
+ */
 gulp.task('sass', () => {
 	return new Promise(resolve => {
 		var options = {
-			outputStyle: 'expanded', // nested, expanded, compact, compressed
-			indentType: 'tab',
-			indentSize: 4
+			outputStyle: 'compact', // nested, expanded, compact, compressed
 		}
 
 		gulp.src(PATH.ASSETS.STYLE + '/*.scss')
@@ -48,23 +50,19 @@ gulp.task('sass', () => {
 		resolve();
 	})
 });
-// nodemon
+/**
+ * @task : NodeMon
+ */
 gulp.task('nodemon:start', () => {
 	return new Promise(resolve => {
 		nodemon({script: 'app.js', watch: 'app'});
 		resolve();
 	});
 });
-// html
-gulp.task('html', () => {
-	return new Promise(resolve => {
-		gulp.src(PATH.HTML + '/*.html')
-			.pipe(gulp.dest(DEST_PATH.HTML))
-			.pipe(browserSync.reload({stream: true}));
 
-		resolve();
-	});
-});
+/**
+ * @task : Script 병합
+ */
 gulp.task('script:concat', () => {
 	return new Promise(resolve => {
 		gulp.src(PATH.ASSETS.SCRIPT + '/*.js')
@@ -74,6 +72,9 @@ gulp.task('script:concat', () => {
 		resolve();
 	})
 });
+/**
+ * @task : Script 병합, 압축, 이름변경
+ */
 gulp.task('script:build', () => {
 	return new Promise(resolve => {
 		gulp.src(PATH.ASSETS.SCRIPT + '/*.js')
@@ -86,22 +87,9 @@ gulp.task('script:build', () => {
 		resolve();
 	})
 });
-// library
-gulp.task('library', () => {
-	return new Promise(resolve => {
-		gulp.src(PATH.ASSETS.LIB + '/*')
-			.pipe(gulp.dest(DEST_PATH.ASSETS.LIB));
-		resolve();
-	});
-});
-// fonts
-gulp.task('fonts', () => {
-	return new Promise(resolve => {
-		gulp.src(PATH.ASSETS.FONTS + '/*')
-			.pipe(gulp.dest(DEST_PATH.ASSETS.FONTS));
-		resolve();
-	});
-});
+/**
+ * @task : 이미지 최적화
+ */
 gulp.task('imagemin', () => {
 	return new Promise(resolve => {
 		gulp.src(PATH.ASSETS.IMAGES + '/*.*')
@@ -115,14 +103,50 @@ gulp.task('imagemin', () => {
 		resolve();
 	});
 });
+/**
+ * @task : HTML 배포
+ */
+gulp.task('html', () => {
+	return new Promise(resolve => {
+		gulp.src(PATH.HTML + '/*.html')
+			.pipe(gulp.dest(DEST_PATH.HTML))
+			.pipe(browserSync.reload({stream: true}));
+
+		resolve();
+	});
+});
+/**
+ * @task : 라이브러리 배포
+ */
+gulp.task('library', () => {
+	return new Promise(resolve => {
+		gulp.src(PATH.ASSETS.LIB + '/*')
+			.pipe(gulp.dest(DEST_PATH.ASSETS.LIB));
+		resolve();
+	});
+});
+/**
+ * @task : 폰트 배포
+ */
+gulp.task('fonts', () => {
+	return new Promise(resolve => {
+		gulp.src(PATH.ASSETS.FONTS + '/*')
+			.pipe(gulp.dest(DEST_PATH.ASSETS.FONTS));
+		resolve();
+	});
+});
+/**
+ * @task : 배포 폴더 삭제
+ */
 gulp.task('clean', () => {
 	return new Promise(resolve => {
 		del.sync(DEST_PATH.HTML);
 		resolve();
 	});
 });
-
-// watch
+/**
+ * @task : Watch
+ */
 gulp.task('watch', () => {
 	return new Promise(resolve => {
 		gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
@@ -132,14 +156,18 @@ gulp.task('watch', () => {
 		resolve();
 	});
 });
-// browser sync
+/**
+ * @task : Browser Sync
+ */
 gulp.task('browserSync', () => {
 	return new Promise(resolve => {
 		browserSync.init({proxy: 'http://localhost:8005', port: 8006});
 		resolve();
 	});
 });
-
+/**
+ * Run Task
+ */
 var allSeries = gulp.series([
 	'clean',
 	'sass',
@@ -152,5 +180,4 @@ var allSeries = gulp.series([
 	'browserSync',
 	'watch'
 ]);
-
 gulp.task('default', allSeries);
