@@ -40,7 +40,7 @@ var DEST_PATH = {
 gulp.task('sass', () => {
 	return new Promise(resolve => {
 		var options = {
-			outputStyle: 'compact', // nested, expanded, compact, compressed
+			outputStyle: 'compressed', // nested, expanded, compact, compressed
 		}
 
 		gulp.src(PATH.ASSETS.STYLE + '/*.scss')
