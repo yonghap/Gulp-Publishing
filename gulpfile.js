@@ -25,7 +25,7 @@ var PATH = {
  * 산출물 경로
  */
 var DEST_PATH = {
-	HTML: './dist',
+	HTML: './dist/html',
 	ASSETS: {
 		FONTS: './dist/assets/fonts',
 		IMAGES: './dist/assets/images',

@@ -4,7 +4,7 @@ var app = express();
 app.set('views', '${ __dirname }/dist/');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.use('/', express.static(`${__dirname}/dist/`));
+app.use('/', express.static(`${__dirname}/dist/html`));
 app.get('/', (req, res) => {
 	console.log(res);
 	res.render('index', {});
