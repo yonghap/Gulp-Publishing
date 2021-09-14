@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	imagemin = require('gulp-imagemin'),
 	del = require('del'),
+	ejs = require('gulp-ejs'),
 	browserSync = require('browser-sync').create();
 
 /**
@@ -166,12 +167,25 @@ gulp.task('browserSync', () => {
 	});
 });
 /**
+ *  @task : EJS
+ */
+gulp.task('gulpEjs', function () {
+	return new Promise(resolve => {
+		gulp.src(PATH.HTML + '/*')
+			.pipe(ejs())
+			.pipe(gulp.dest(DEST_PATH.HTML))
+		resolve();
+	});
+});
+
+/**
  * Run Task
  */
 var allSeries = gulp.series([
 	'clean',
 	'sass',
-	'html',
+	'gulpEjs',
+	// 'html',
 	'script:build',
 	'imagemin',
 	'library',
