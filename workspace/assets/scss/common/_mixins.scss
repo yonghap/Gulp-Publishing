@@ -1,8 +1,8 @@
 @charset "UTF-8";
-/// Mixin
-///
-/// Absolute Position
-/// @type position
+// Mixin
+
+// Absolute Position
+// @type position
 @mixin absolute($top:0, $left:0, $width:100%, $height:100%) {
 	position:absolute;
 	top:$top;
@@ -11,8 +11,8 @@
 	height:$height;
 }
 
-/// Text Ellipsis
-/// @type text
+// Text Ellipsis
+// @type text
 @mixin ellipsis($line: 1) {
 	@if ($line == 1) {
 		overflow:hidden;
@@ -27,12 +27,12 @@
 	}
 }
 
-/// Clearfix
-/// @type clear
+// Clearfix
+// @type clear
 @mixin clearfix {
-	&::after {
-		content: "";
-		display: block;
-		clear: both;
+	&:after {
+		content:"";
+		display:block;
+		clear:both;
 	}
 }

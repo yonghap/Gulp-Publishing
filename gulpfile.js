@@ -121,7 +121,7 @@ gulp.task('html', () => {
  */
 gulp.task('library', () => {
 	return new Promise(resolve => {
-		gulp.src(PATH.ASSETS.LIB + '/*')
+		gulp.src(PATH.ASSETS.LIB + '/**/*')
 			.pipe(gulp.dest(DEST_PATH.ASSETS.LIB));
 		resolve();
 	});
@@ -150,10 +150,11 @@ gulp.task('clean', () => {
  */
 gulp.task('watch', () => {
 	return new Promise(resolve => {
-		gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
+		// gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
 		gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series(['sass']));
 		gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script:build']));
 		gulp.watch(PATH.ASSETS.IMAGES + "/**/*.*", gulp.series(['imagemin']));
+		gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['gulpEjs']));
 		resolve();
 	});
 });

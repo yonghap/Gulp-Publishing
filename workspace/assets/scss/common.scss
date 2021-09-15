@@ -1,15 +1,39 @@
 @charset "UTF-8";
-
 @import 'common/base';
 @import 'common/mixins';
 @import 'common/placeholders';
 @import 'common/variables';
-
 body {
 	font-size:16px;
-	color:#222222;
+	font-family: $fontfamily;
+	color: $color;
 }
 .wrap {
-	font-size:12px;
-	color:#666
+	overflow:hidden;
+}
+.row {
+	max-width:1180px;
+	margin:0 auto;
+	@include clearfix;
+}
+.header {
+	@include absolute(0,0,100%,auto);
+	padding-top:30px;
+	text-align:center;
+	line-height:26px;
+	z-index:30;
+}
+.logo {
+	padding:20px 0;
+}
+.gnb {
+	a {
+		margin:0 10px;
+		color:#ffffff;
+	}
+}
+.main-intro {
+	height:100vh;
+	background:url(../images/bg_mainintro1.jpg) no-repeat center top;
+	background-size:cover
 }

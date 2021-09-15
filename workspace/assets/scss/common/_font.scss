@@ -1,0 +1,28 @@
+@charset "UTF-8";
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-weight:400;
+	src:
+			local(※), /* IE fix */
+			url(../fonts/NotoSans-Regular.woff2) format('woff2'),
+			url(../fonts/NotoSans-Regular.woff) format('woff');
+	unicode-range: U+AC00-U+D7A3;
+}
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-weight:500;
+	src:
+			local(※), /* IE fix */
+			url(../fonts/NotoSans-Medium.woff2) format('woff2'),
+			url(./fonts/NotoSans-Medium.woff) format('woff');
+	unicode-range: U+AC00-U+D7A3;
+}
+@font-face {
+	font-family: 'Noto Sans KR';
+	font-weight:bold;
+	src:
+			local(※), /* IE fix */
+			url(../fonts/NotoSans-Bold.woff2) format('woff2'),
+			url(../fonts/NotoSans-Bold.woff) format('woff');
+	unicode-range: U+AC00-U+D7A3;
+}
