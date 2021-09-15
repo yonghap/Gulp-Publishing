@@ -7,6 +7,7 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	del = require('del'),
 	ejs = require('gulp-ejs'),
+	sprite = require('gulp.spritesmith'),
 	browserSync = require('browser-sync').create();
 
 /**
@@ -22,6 +23,7 @@ var PATH = {
 		LIB: './workspace/assets/lib'
 	}
 }
+
 /**
  * 산출물 경로
  */
@@ -35,6 +37,7 @@ var DEST_PATH = {
 		LIB: './dist/assets/lib'
 	}
 }
+
 /**
  * @task : Sass
  */
@@ -51,6 +54,7 @@ gulp.task('sass', () => {
 		resolve();
 	})
 });
+
 /**
  * @task : NodeMon
  */
@@ -73,6 +77,7 @@ gulp.task('script:concat', () => {
 		resolve();
 	})
 });
+
 /**
  * @task : Script 병합, 압축, 이름변경
  */
@@ -88,6 +93,7 @@ gulp.task('script:build', () => {
 		resolve();
 	})
 });
+
 /**
  * @task : 이미지 최적화
  */
@@ -104,6 +110,7 @@ gulp.task('imagemin', () => {
 		resolve();
 	});
 });
+
 /**
  * @task : HTML 배포
  */
@@ -116,6 +123,7 @@ gulp.task('html', () => {
 		resolve();
 	});
 });
+
 /**
  * @task : 라이브러리 배포
  */
@@ -126,6 +134,7 @@ gulp.task('library', () => {
 		resolve();
 	});
 });
+
 /**
  * @task : 폰트 배포
  */
@@ -136,6 +145,7 @@ gulp.task('fonts', () => {
 		resolve();
 	});
 });
+
 /**
  * @task : 배포 폴더 삭제
  */
@@ -145,6 +155,7 @@ gulp.task('clean', () => {
 		resolve();
 	});
 });
+
 /**
  * @task : Watch
  */
@@ -158,6 +169,7 @@ gulp.task('watch', () => {
 		resolve();
 	});
 });
+
 /**
  * @task : Browser Sync
  */
@@ -167,6 +179,7 @@ gulp.task('browserSync', () => {
 		resolve();
 	});
 });
+
 /**
  *  @task : EJS
  */
@@ -177,6 +190,21 @@ gulp.task('gulpEjs', function () {
 			.pipe(gulp.dest(DEST_PATH.HTML))
 		resolve();
 	});
+});
+
+/**
+ * @task : Sprite Image
+ */
+gulp.task('sprite', function() {
+	const spriteData = gulp.src(PATH.ASSETS.IMAGES + '/sprite/*.png').pipe(spritesmith({
+		retinaSrcFilter: PATH.ASSETS.IMAGES + '/sprite/*@2x.png',
+		imgName: 'sprite.png',
+		retinaImgName: 'sprite@2x.png',
+		padding: 5,
+		cssName: 'sprite.scss',
+		cssName: 'sprite.css',
+	}));
+	return spriteData.pipe(gulp.dest('./src/assets/images'));
 });
 
 /**
