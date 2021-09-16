@@ -8,6 +8,8 @@ var gulp = require('gulp'),
 	del = require('del'),
 	ejs = require('gulp-ejs'),
 	sprite = require('gulp.spritesmith'),
+	merge = require('merge-stream'),
+	buffer = require('vinyl-buffer'),
 	browserSync = require('browser-sync').create();
 
 /**
@@ -196,15 +198,23 @@ gulp.task('gulpEjs', function () {
  * @task : Sprite Image
  */
 gulp.task('sprite', function() {
-	const spriteData = gulp.src(PATH.ASSETS.IMAGES + '/sprite/*.png').pipe(spritesmith({
+	const spriteData = gulp.src(PATH.ASSETS.IMAGES + '/sprite/*.png').pipe(sprite({
 		retinaSrcFilter: PATH.ASSETS.IMAGES + '/sprite/*@2x.png',
 		imgName: 'sprite.png',
 		retinaImgName: 'sprite@2x.png',
 		padding: 5,
-		cssName: 'sprite.scss',
-		cssName: 'sprite.css',
+		cssName: '_sprite.scss',
+		cssTemplate: PATH.ASSETS.STYLE + '/common/handlebarsStr.css.handlebars'
 	}));
-	return spriteData.pipe(gulp.dest('./src/assets/images'));
+	var imgStream = spriteData.img
+		.pipe(buffer())
+		.pipe(imagemin())
+		.pipe(gulp.dest(PATH.ASSETS.IMAGES));
+	var cssStream = spriteData.css
+		.pipe(buffer())
+		.pipe(gulp.dest(PATH.ASSETS.STYLE + '/common'));
+
+	return merge(imgStream, cssStream);
 });
 
 /**
@@ -214,6 +224,7 @@ var allSeries = gulp.series([
 	'clean',
 	'sass',
 	'gulpEjs',
+	'sprite',
 	// 'html',
 	'script:build',
 	'imagemin',

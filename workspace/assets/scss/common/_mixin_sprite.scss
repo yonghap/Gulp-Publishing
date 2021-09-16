@@ -1,0 +1,32 @@
+@charset "UTF-8";
+@import '_sprite.scss';
+// Mixin Sprite
+
+$sprite1x-image: '../images/sprite.png';
+$sprite2x-image: '../images/sprite@2x.png';
+
+.icon {
+	display:block;
+	background-image:url(#{$sprite1x-image});
+	background-repeat:no-repeat;
+}
+.icon-sunny {
+	@include sprite($sunny);
+}
+@mixin sprite-1x($sprite) {
+	width: nth($sprite, 5);
+	height: nth($sprite, 6);
+	background-position: nth($sprite, 3) nth($sprite, 4);
+}
+
+@mixin sprite($sprite) {
+	@include sprite-1x($sprite);
+}
+.icon {
+	display:block;
+	background-image:url(#{$sprite1x-image});
+	background-repeat:no-repeat;
+}
+.icon-sunny {
+	@include sprite($sunny);
+}

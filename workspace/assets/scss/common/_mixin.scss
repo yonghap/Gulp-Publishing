@@ -1,0 +1,38 @@
+@charset "UTF-8";
+// Mixin
+
+// Absolute Position
+// @type position
+@mixin absolute($top:0, $left:0, $width:100%, $height:100%) {
+	position:absolute;
+	top:$top;
+	left:$left;
+	width:$width;
+	height:$height;
+}
+
+// Text Ellipsis
+// @type text
+@mixin ellipsis($line: 1) {
+	@if ($line == 1) {
+		overflow:hidden;
+		text-overflow:ellipsis;
+		white-space:nowrap;
+	} @else {
+		display:-webkit-box;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		-webkit-box-orient:vertical;
+		-webkit-line-clamp:$line;
+	}
+}
+
+// Clearfix
+// @type clear
+@mixin clearfix {
+	&:after {
+		content:"";
+		display:block;
+		clear:both;
+	}
+}

@@ -1,9 +1,13 @@
 @charset "UTF-8";
 // Color
 // @type Color
-$color:#222;
-$color--point:#0080cc;
+$color: #222;
+$color--point: #0080cc;
 
 // Font
 // @type Font
-$fontfamily:'Noto Sans KR','맑은 고딕','Malgun Gothic';
+$fontfamily: 'Noto Sans KR','맑은 고딕','Malgun Gothic';
+
+// Sprite
+$sprite-image: '../images/sprite.png';
+$sprite2x-image: '../images/sprite@2x.png';

@@ -1,8 +1,9 @@
 @charset "UTF-8";
 @import 'common/base';
-@import 'common/mixins';
-@import 'common/placeholders';
 @import 'common/variables';
+@import 'common/mixin';
+@import 'common/mixin_sprite';
+@import 'common/placeholders';
 body {
 	font-size:16px;
 	font-family: $fontfamily;
@@ -31,6 +32,9 @@ body {
 		margin:0 10px;
 		color:#ffffff;
 	}
+}
+.icon {
+	display:inline-block
 }
 .main-intro {
 	height:100vh;
