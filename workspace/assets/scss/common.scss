@@ -4,13 +4,29 @@
 @import 'common/mixin';
 @import 'common/mixin_sprite';
 @import 'common/placeholders';
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;400;700&display=swap');
 body {
+	padding:25px;
+	background:#f1f1f1;
 	font-size:16px;
 	font-family: $fontfamily;
 	color: $color;
 }
+.point {
+	color: $color--point;
+	&--secondary {
+		color: $color--secondary;
+	}
+}
+.desc {
+	font-size:0.8em;
+	line-height:1.7;
+}
 .wrap {
 	overflow:hidden;
+	max-width:768px;
+	margin:0 auto;
+	font-size:16px;
 }
 .row {
 	max-width:1180px;
@@ -18,14 +34,19 @@ body {
 	@include clearfix;
 }
 .header {
-	@include absolute(0,0,100%,auto);
-	padding-top:30px;
-	text-align:center;
-	line-height:26px;
-	z-index:30;
+	padding:40px 25px;
+	background:#fff;
 }
 .logo {
-	padding:20px 0;
+	padding:0 25px;
+	text-align:center;
+	a {
+		display:block;
+		img {
+			max-width:12%;
+			min-width:50px;
+		}
+	}
 }
 .gnb {
 	a {
@@ -33,11 +54,81 @@ body {
 		color:#ffffff;
 	}
 }
-.icon {
-	display:inline-block
+.title {
+	margin-bottom:15px;
+	font-size:20px;
+	font-weight:700;
+	.info & {
+		margin-bottom:5px;
+		font-size:24px;
+	}
 }
-.main-intro {
-	height:100vh;
-	background:url(../images/bg_mainintro1.jpg) no-repeat center top;
-	background-size:cover
+.intro {
+	display:flex;
+	align-items:center;
+	padding:25px 0;
+	&__temp {
+		font-size:36px;
+		font-weight:700;
+	}
+	&__text {
+		margin-left:10px;
+		font-size:20px;
+	}
+	&__icon {
+		flex-grow:1;
+		text-align:right;
+	}
+}
+.section {
+	margin:15px 0;
+	padding:30px 25px;
+	background:#fff;
+	box-shadow:0 0 10px rgba(0,0,0,0.05);
+}
+.today-list {
+	display:flex;
+	padding:0 20px;
+	justify-content:space-between;
+	text-align:center;
+	&__item {
+		margin:0 5px;
+	}
+	&__temp {
+		margin:5px 0;
+		font-weight:700;
+	}
+	&__title {
+		font-size:0.8em;
+		font-weight:400;
+		color:#666
+	}
+	&__status {
+		margin:5px 0;
+		font-weight:700;
+	}
+	&__text {
+		font-size:0.6em;
+		color:#666;
+	}
+	&--center {
+		justify-content:center;
+	}
+}
+.forecast-list {
+	li {
+		display:flex;
+		align-items:center;
+		justify-content:space-between;
+		font-size:0.8em;
+	}
+	&__date {
+		font-weight:700;
+	}
+}
+.footer {
+	margin-top:20px;
+	font-size:0.7em;
+	color:#666;
+	text-align:center
 }

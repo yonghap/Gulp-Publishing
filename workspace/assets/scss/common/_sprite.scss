@@ -9,13 +9,141 @@
 //
 // At the bottom of this section, we provide information about the spritesheet itself
 // $spritesheet: width height image $spritesheet-sprites;
-			$clear-cloudy: (0px, 0px, 0px, 0px, 49px, 48px, 155px, 101px, 'sprite.png', 'clear-cloudy', );
-			$cloudy: (54px, 0px, -54px, 0px, 48px, 48px, 155px, 101px, 'sprite.png', 'cloudy', );
-			$showers: (0px, 53px, 0px, -53px, 48px, 48px, 155px, 101px, 'sprite.png', 'showers', );
-			$snow: (53px, 53px, -53px, -53px, 48px, 48px, 155px, 101px, 'sprite.png', 'snow', );
-			$sunny: (107px, 0px, -107px, 0px, 48px, 48px, 155px, 101px, 'sprite.png', 'sunny', );
-		$spritesheet-sprites: ($clear-cloudy, $cloudy, $showers, $snow, $sunny, );
-		$spritesheet: (155px, 101px, 'sprite.png', $spritesheet-sprites, );
+$clear-cloudy-name: 'clear-cloudy';
+$clear-cloudy-x: 0px;
+$clear-cloudy-y: 0px;
+$clear-cloudy-offset-x: 0px;
+$clear-cloudy-offset-y: 0px;
+$clear-cloudy-width: 49px;
+$clear-cloudy-height: 48px;
+$clear-cloudy-total-width: 155px;
+$clear-cloudy-total-height: 101px;
+$clear-cloudy-image: 'sprite.png';
+$clear-cloudy: (0px, 0px, 0px, 0px, 49px, 48px, 155px, 101px, 'sprite.png', 'clear-cloudy', );
+$cloudy-name: 'cloudy';
+$cloudy-x: 54px;
+$cloudy-y: 0px;
+$cloudy-offset-x: -54px;
+$cloudy-offset-y: 0px;
+$cloudy-width: 48px;
+$cloudy-height: 48px;
+$cloudy-total-width: 155px;
+$cloudy-total-height: 101px;
+$cloudy-image: 'sprite.png';
+$cloudy: (54px, 0px, -54px, 0px, 48px, 48px, 155px, 101px, 'sprite.png', 'cloudy', );
+$showers-name: 'showers';
+$showers-x: 0px;
+$showers-y: 53px;
+$showers-offset-x: 0px;
+$showers-offset-y: -53px;
+$showers-width: 48px;
+$showers-height: 48px;
+$showers-total-width: 155px;
+$showers-total-height: 101px;
+$showers-image: 'sprite.png';
+$showers: (0px, 53px, 0px, -53px, 48px, 48px, 155px, 101px, 'sprite.png', 'showers', );
+$snow-name: 'snow';
+$snow-x: 53px;
+$snow-y: 53px;
+$snow-offset-x: -53px;
+$snow-offset-y: -53px;
+$snow-width: 48px;
+$snow-height: 48px;
+$snow-total-width: 155px;
+$snow-total-height: 101px;
+$snow-image: 'sprite.png';
+$snow: (53px, 53px, -53px, -53px, 48px, 48px, 155px, 101px, 'sprite.png', 'snow', );
+$sunny-name: 'sunny';
+$sunny-x: 107px;
+$sunny-y: 0px;
+$sunny-offset-x: -107px;
+$sunny-offset-y: 0px;
+$sunny-width: 48px;
+$sunny-height: 48px;
+$sunny-total-width: 155px;
+$sunny-total-height: 101px;
+$sunny-image: 'sprite.png';
+$sunny: (107px, 0px, -107px, 0px, 48px, 48px, 155px, 101px, 'sprite.png', 'sunny', );
+$clear-cloudy-2x-name: 'clear-cloudy@2x';
+$clear-cloudy-2x-x: 0px;
+$clear-cloudy-2x-y: 0px;
+$clear-cloudy-2x-offset-x: 0px;
+$clear-cloudy-2x-offset-y: 0px;
+$clear-cloudy-2x-width: 98px;
+$clear-cloudy-2x-height: 96px;
+$clear-cloudy-2x-total-width: 310px;
+$clear-cloudy-2x-total-height: 202px;
+$clear-cloudy-2x-image: 'sprite@2x.png';
+$clear-cloudy-2x: (0px, 0px, 0px, 0px, 98px, 96px, 310px, 202px, 'sprite@2x.png', 'clear-cloudy@2x', );
+$cloudy-2x-name: 'cloudy@2x';
+$cloudy-2x-x: 108px;
+$cloudy-2x-y: 0px;
+$cloudy-2x-offset-x: -108px;
+$cloudy-2x-offset-y: 0px;
+$cloudy-2x-width: 96px;
+$cloudy-2x-height: 96px;
+$cloudy-2x-total-width: 310px;
+$cloudy-2x-total-height: 202px;
+$cloudy-2x-image: 'sprite@2x.png';
+$cloudy-2x: (108px, 0px, -108px, 0px, 96px, 96px, 310px, 202px, 'sprite@2x.png', 'cloudy@2x', );
+$showers-2x-name: 'showers@2x';
+$showers-2x-x: 0px;
+$showers-2x-y: 106px;
+$showers-2x-offset-x: 0px;
+$showers-2x-offset-y: -106px;
+$showers-2x-width: 96px;
+$showers-2x-height: 96px;
+$showers-2x-total-width: 310px;
+$showers-2x-total-height: 202px;
+$showers-2x-image: 'sprite@2x.png';
+$showers-2x: (0px, 106px, 0px, -106px, 96px, 96px, 310px, 202px, 'sprite@2x.png', 'showers@2x', );
+$snow-2x-name: 'snow@2x';
+$snow-2x-x: 106px;
+$snow-2x-y: 106px;
+$snow-2x-offset-x: -106px;
+$snow-2x-offset-y: -106px;
+$snow-2x-width: 96px;
+$snow-2x-height: 96px;
+$snow-2x-total-width: 310px;
+$snow-2x-total-height: 202px;
+$snow-2x-image: 'sprite@2x.png';
+$snow-2x: (106px, 106px, -106px, -106px, 96px, 96px, 310px, 202px, 'sprite@2x.png', 'snow@2x', );
+$sunny-2x-name: 'sunny@2x';
+$sunny-2x-x: 214px;
+$sunny-2x-y: 0px;
+$sunny-2x-offset-x: -214px;
+$sunny-2x-offset-y: 0px;
+$sunny-2x-width: 96px;
+$sunny-2x-height: 96px;
+$sunny-2x-total-width: 310px;
+$sunny-2x-total-height: 202px;
+$sunny-2x-image: 'sprite@2x.png';
+$sunny-2x: (214px, 0px, -214px, 0px, 96px, 96px, 310px, 202px, 'sprite@2x.png', 'sunny@2x', );
+$spritesheet-width: 155px;
+$spritesheet-height: 101px;
+$spritesheet-image: 'sprite.png';
+$spritesheet-sprites: ($clear-cloudy, $cloudy, $showers, $snow, $sunny, );
+$spritesheet: (155px, 101px, 'sprite.png', $spritesheet-sprites, );
+$retina-spritesheet-width: 310px;
+$retina-spritesheet-height: 202px;
+$retina-spritesheet-image: 'sprite@2x.png';
+$retina-spritesheet-sprites: ($clear-cloudy-2x, $cloudy-2x, $showers-2x, $snow-2x, $sunny-2x, );
+$retina-spritesheet: (310px, 202px, 'sprite@2x.png', $retina-spritesheet-sprites, );
+
+// These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+//
+// The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+$clear-cloudy-group-name: 'clear-cloudy';
+$clear-cloudy-group: ('clear-cloudy', $clear-cloudy, $clear-cloudy-2x, );
+$cloudy-group-name: 'cloudy';
+$cloudy-group: ('cloudy', $cloudy, $cloudy-2x, );
+$showers-group-name: 'showers';
+$showers-group: ('showers', $showers, $showers-2x, );
+$snow-group-name: 'snow';
+$snow-group: ('snow', $snow, $snow-2x, );
+$sunny-group-name: 'sunny';
+$sunny-group: ('sunny', $sunny, $sunny-2x, );
+$retina-groups: ($clear-cloudy-group, $cloudy-group, $showers-group, $snow-group, $sunny-group, );
 
 // The provided mixins are intended to be used with the array-like variables
 //
@@ -67,6 +195,34 @@
   @include sprite-height($sprite);
 }
 
+// The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+//   It should be used with a "retina group" variable.
+//
+// The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+//
+// $icon-home-group: ('icon-home', $icon-home, $icon-home-2x, );
+//
+// .icon-home {
+//   @include retina-sprite($icon-home-group);
+// }
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: nth($retina-group, 2);
+  $retina-sprite: nth($retina-group, 3);
+  @include sprite($normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
+}
+
 // The `sprites` mixin generates identical output to the CSS template
 //   but can be overridden inside of SCSS
 //
@@ -76,6 +232,19 @@
     $sprite-name: nth($sprite, 10);
     .#{$sprite-name} {
       @include sprite($sprite);
+    }
+  }
+}
+
+// The `retina-sprites` mixin generates a CSS rule and media query for retina groups
+//   This yields the same output as CSS retina template but can be overridden in SCSS
+//
+// @include retina-sprites($retina-groups);
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: nth($retina-group, 1);
+    .#{$sprite-name} {
+      @include retina-sprite($retina-group);
     }
   }
 }

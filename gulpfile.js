@@ -204,11 +204,11 @@ gulp.task('sprite', function() {
 		retinaImgName: 'sprite@2x.png',
 		padding: 5,
 		cssName: '_sprite.scss',
-		cssTemplate: PATH.ASSETS.STYLE + '/common/handlebarsStr.css.handlebars'
+		// cssTemplate: PATH.ASSETS.STYLE + '/common/handlebarsStr.css.handlebars'
 	}));
 	var imgStream = spriteData.img
 		.pipe(buffer())
-		.pipe(imagemin())
+		// .pipe(imagemin())
 		.pipe(gulp.dest(PATH.ASSETS.IMAGES));
 	var cssStream = spriteData.css
 		.pipe(buffer())
