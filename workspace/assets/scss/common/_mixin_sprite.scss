@@ -14,7 +14,6 @@ $sprite2x-image: '../images/sprite@2x.png';
 	text-indent:-9999px;
 	text-align:left;
 }
-
 @mixin sprite-1x($sprite) {
 	width: nth($sprite, 5);
 	height: nth($sprite, 6);
