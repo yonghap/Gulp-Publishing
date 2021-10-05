@@ -46,7 +46,7 @@ var DEST_PATH = {
 gulp.task('sass', () => {
 	return new Promise(resolve => {
 		var options = {
-			outputStyle: 'compressed', // nested, expanded, compact, compressed
+			outputStyle: 'compact', // nested, expanded, compact, compressed
 		}
 
 		gulp.src(PATH.ASSETS.STYLE + '/*.scss')
@@ -224,7 +224,7 @@ var allSeries = gulp.series([
 	'clean',
 	'sass',
 	'gulpEjs',
-	'sprite',
+	// 'sprite',
 	// 'html',
 	'script:build',
 	'imagemin',

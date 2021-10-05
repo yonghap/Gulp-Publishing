@@ -1,24 +1,153 @@
-<%- include('./include/inc_header.html', { title: "fresh-mint" }) %>
-<div id="container" class="container">
-	<div class="main">
-		<section class="section">
-			<p class="desc">
-				퍼블리싱용 Gulp 세팅 <br><br>
-				<strong>사용 모듈</strong> <br>
-				clean : 배포 폴더 클린 <br>
-				sass : CSS 전처리기 <br>
-				gulpEjs : 템플릿 언어 <br>
-				sprite : 이미지 스프라이트 <br>
-				html : html 복사 <br>
-				script:build : 스크립트 병합, 압축, 이름 변경 <br>
-				imagemin : 이미지 최적화 <br>
-				library : 라이브러리 복사 <br>
-				fonts : 폰트 복사 <br>
-				nodemon : 서버 구동 <br>
-				browserSync : 라이브 로딩 <br>
-				watch : 파일 변경 체크
-			</p>
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>스텐리</title>
+	<script src="../assets/lib/jquery/jquery-2.2.4.min.js"></script>
+	<script src="../assets/lib/swiper/swiper.min.js"></script>
+	<script src="../assets/lib/swiper/swiper.min.js"></script>
+	<script src="../assets/lib/aos/aos.js"></script>
+	<link rel="stylesheet" href="../assets/lib/swiper/swiper.min.css">
+	<link rel="stylesheet" href="../assets/lib/aos/aos.css">
+	<link rel="stylesheet" href="../../dist/assets/css/common.css">
+</head>
+<body>
+<div id="wrap" class="wrap">
+	<div class="container">
+		<!-- Intro -->
+		<section class="intro">
+			<h1 class="logo">
+				<img src="../assets/images/logo.png" alt="Stanley">
+			</h1>
+			<h2 class="intro__title" data-aos="fade">
+				<img src="../assets/images/title_main.png" alt="모든 순간 어디서나 Built for life">
+			</h2>
+			<div class="intro__image">
+				<h3 class="intro__subtitle" data-aos="fade-up">
+					<img src="../assets/images/title_backto.png" alt="Back to 1913">
+				</h3>
+				<img src="../assets/images/img_kv.png" alt="Back to 1913" data-aos="fade-up" data-aos-delay="200">
+				<div class="intro__product" data-aos="fade" data-aos-delay="800">
+					<img src="../assets/images/img_product.png" alt="Stanley">
+				</div>
+			</div>
 		</section>
+		<!-- Tab -->
+		<section class="tab">
+			<h2 class="tab__title">
+				<img src="../assets/images/btn_tab1.jpg" alt="스토리">
+				<div class="tab__wrap clear">
+					<a href="#">
+						스토리
+					</a>
+					<a href="#">
+						이벤트
+					</a>
+					<a href="#">
+						전시관
+					</a>
+				</div>
+			</h2>
+		</section>
+		<!-- History -->
+		<section class="history">
+			<article class="history__article" style="margin-bottom:-10px">
+				<h2 class="history__title" style="margin-bottom:-70px">
+					<img src="../assets/images/title_history.png" alt="108년의 연구로 만들어진 스탠리 보온병의 역사">
+				</h2>
+				<div class="history__image">
+					<img src="../assets/images/img_history01.png" alt="1913 ~ 2021 보온병"
+				</div>
+			</article>
+			<article class="history__article">
+				<h2 class="history__title" style="margin-bottom:-35px">
+					<img src="../assets/images/title_history2.png" alt="STANLEY HISTORY 짧게 보는 스탠리 108년 역사">
+				</h2>
+				<ul class="history__list">
+					<li class="tal" style="margin-bottom:-40px">
+						<img src="../assets/images/img_p01.png"
+						     alt="1913 윌리엄 스탠리 주니어가 올 스틸 진공 보온병을 발명.기존 유리를 대신해 단열을 위해 스틸 사용.">
+					</li>
+					<li style="margin-bottom:-20px">
+						<img src="../assets/images/img_p02.png" alt="1953 STANLEY 보온병의 상징인 헤머톤 그린 색상이 최초로 사용됨.">
+					</li>
+					<li style="margin-bottom:20px;padding-right:40px">
+						<img src="../assets/images/img_p03.png"
+						     alt="1995 전기와 단열부문에서 129개의 특허를 보유했던 윌리엄 스탠리 주니어는 ‘국립혁신가 명예의 전당’에 헌액됨">
+					</li>
+					<li style="margin-bottom:-20px">
+						<img src="../assets/images/img_p04.png" alt="2002 STANLEY가 아시아 태평양 시장에 진출">
+					</li>
+					<li class="tal" style="margin-bottom:-95px">
+						<img src="../assets/images/img_p05.png" alt="2019 4중 레이어 진공 단열 기법을 적용한 스탠리 QUADVAC™ 시리즈 출시 용감한 탐험가의 정신을 상징으로 한 스탠리 베어로고 탄생
+용감하고 탐구적인 곰 로고 탄생">
+					</li>
+					<li>
+						<a href="#">
+							<img src="../assets/images/img_p06.png" alt="STANLEY 108주년 리미티드 에디션 출시 자세히 보러가기>">
+						</a>
+					</li>
+				</ul>
+			</article>
+			<article class="history__article history__article--event">
+				<h2 class="history__title" >
+					<img src="../assets/images/title_history3.png" alt="STANLEY HISTORY 짧게 보는 스탠리 108년 역사">
+				</h2>
+				<div class="history__event">
+					<a href="#">
+						<img src="../assets/images/img_history02.png" alt="스탠리 이벤트 참여 GO">
+					</a>
+				</div>
+				<div class="history__inner">
+					<div class="history__slider">
+						<div class="history__slide">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="../assets/images/img_history03.png" alt="490미터 아래로 추락">
+								</div>
+								<div class="swiper-slide">
+									<img src="../assets/images/img_history03.png" alt="490미터 아래로 추락">
+								</div>
+							</div>
+						</div>
+						<div class="history__btn history__btn--prev">
+							<img src="../assets/images/btn_prev.png" alt="이전">
+						</div>
+						<div class="history__btn history__btn--next">
+							<img src="../assets/images/btn_next.png" alt="다음">
+						</div>
+					</div>
+				</div>
+			</article>
+			<article class="history__article history__article--edition">
+				<h2 class="blind">
+					스탠리 108주년 기념 한정판 보온병 출시!
+				</h2>
+				<div class="history__edtion">
+					<a href="#">
+						<img src="../assets/images/img_history04.png" alt="스탠리 108주년 기념 한정판 보온병 출시! 리미티드 에디션 보러가기">
+					</a>
+				</div>
+			</article>
+		</section>
+		<script>
+			AOS.init({});
+			$(function () {
+				new Swiper('.history__slide', {
+					loop: true,
+					navigation: {
+						prevEl: '.history__btn--prev',
+						nextEl: '.history__btn--next'
+					},
+				})
+			})
+		</script>
 	</div>
+	<!-- footer -->
+	<footer id="footer" class="footer">
+		<img src="../assets/images/img_footer.jpg" alt="캠페인 관련 문의는 070-4659-1538번으로 전화주세요. 대한민국 STANLEY is a brand of PMI © 2021 STANLEY, All Rights Reserved. 대표전화: 070-4659-1538">
+	</footer>
 </div>
-<%- include('./include/inc_footer.html', { title: "fresh-mint" }) %>
