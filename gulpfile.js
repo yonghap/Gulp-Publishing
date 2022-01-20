@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-	sass = require('gulp-sass'),
+	sass = require('gulp-sass')(require('sass')),
 	nodemon = require('gulp-nodemon'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	del = require('del'),
 	ejs = require('gulp-ejs'),
-	sprite = require('gulp.spritesmith'),
+	// sprite = require('gulp.spritesmith'),
 	merge = require('merge-stream'),
 	buffer = require('vinyl-buffer'),
 	browserSync = require('browser-sync').create();
@@ -30,7 +30,7 @@ var PATH = {
  * 산출물 경로
  */
 var DEST_PATH = {
-	HTML: './dist/html',
+	HTML: './dist',
 	ASSETS: {
 		FONTS: './dist/assets/fonts',
 		IMAGES: './dist/assets/images',
@@ -45,12 +45,10 @@ var DEST_PATH = {
  */
 gulp.task('sass', () => {
 	return new Promise(resolve => {
-		var options = {
-			outputStyle: 'compact', // nested, expanded, compact, compressed
-		}
-
 		gulp.src(PATH.ASSETS.STYLE + '/*.scss')
-			.pipe(sass(options))
+			.pipe(sass({
+				outputStyle:  'expanded'
+			}).on('error', sass.logError))
 			.pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
 			.pipe(browserSync.reload({stream: true}));
 		resolve();
@@ -101,14 +99,13 @@ gulp.task('script:build', () => {
  */
 gulp.task('imagemin', () => {
 	return new Promise(resolve => {
-		gulp.src(PATH.ASSETS.IMAGES + '/*.*')
+		gulp.src('./imgs' + '/*.*')
 			.pipe(imagemin([
 				imagemin.gifsicle({interlaced: false}),
 				imagemin.mozjpeg({quality: 75, progressive: false}),
 				imagemin.optipng({optimizationLevel: 5}),
 				imagemin.svgo({plugins: [{removeViewBox: true}, {cleanupIDs: false}]})]))
-			.pipe(gulp.dest(DEST_PATH.ASSETS.IMAGES))
-			.pipe(browserSync.reload({stream: true}));
+			.pipe(gulp.dest('./imgdist'))
 		resolve();
 	});
 });
@@ -163,11 +160,8 @@ gulp.task('clean', () => {
  */
 gulp.task('watch', () => {
 	return new Promise(resolve => {
-		// gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
+		gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
 		gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series(['sass']));
-		gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script:build']));
-		gulp.watch(PATH.ASSETS.IMAGES + "/**/*.*", gulp.series(['imagemin']));
-		gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['gulpEjs']));
 		resolve();
 	});
 });
@@ -221,15 +215,15 @@ gulp.task('sprite', function() {
  * Run Task
  */
 var allSeries = gulp.series([
-	'clean',
+	// 'clean',
 	'sass',
-	'gulpEjs',
+	// 'gulpEjs',
 	// 'sprite',
-	// 'html',
-	'script:build',
-	'imagemin',
+	'html',
+	// 'script:build',
+	// 'imagemin',
 	'library',
-	'fonts',
+	// 'fonts',
 	'nodemon:start',
 	'browserSync',
 	'watch'
