@@ -11,17 +11,19 @@
 	height:$height;
 }
 
-// Text Ellipsis
+// Text Ellipsis (IE fix)
 // @type text
-@mixin ellipsis($line: 1) {
-	@if ($line == 1) {
+@mixin ellipsis($line:null, $height:auto, $lineHeight:inherit) {
+	@if ($line == null) {
 		overflow:hidden;
 		text-overflow:ellipsis;
 		white-space:nowrap;
 	} @else {
 		display:-webkit-box;
 		overflow:hidden;
+		height:$height;
 		text-overflow:ellipsis;
+		line-height:$lineHeight;
 		-webkit-box-orient:vertical;
 		-webkit-line-clamp:$line;
 	}

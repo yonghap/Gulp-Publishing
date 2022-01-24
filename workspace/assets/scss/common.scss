@@ -3,4 +3,10 @@
 @import 'common/variables';
 @import 'common/mixin';
 
-.wrap {color:blue}
+.wrap {
+	margin:2rem 3rem;
+	font-family:$fontFamily;
+	font-size:16px;
+	color:$color;
+	line-height:1.6;
+}
