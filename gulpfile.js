@@ -1,9 +1,10 @@
 const { series, parallel, src, dest } = require('gulp'),
-	sass = require('gulp-sass')(require('sass'));
-
+	sass = require('gulp-sass')(require('sass')),
+	ejs = require('gulp-ejs'),
+	nodemon = require('gulp-nodemon');
 
 /**
- * 환경설정
+ * Config
  */
 const CONFIG = {
 	language : ['KO','EN'],
@@ -31,16 +32,32 @@ const CONFIG = {
 	}
 }
 
-function complieCSS(cb) {
-	cb();
+/**
+ * @task : Sass
+ */
+function CSS() {
+	return new Promise(resolve => {
+		src(CONFIG.workspace.ASSETS.STYLE + '/*.scss')
+			.pipe(sass({
+				outputStyle:  'compressed'
+			}).on('error', sass.logError))
+			.pipe(dest(CONFIG.deploy.ASSETS.STYLE))
+		resolve();
+	})
 }
 
-function build(cb) {
-	cb();
+/**
+ * @task : Nodemon
+ */
+function ServerStart(cb) {
+	return new Promise(resolve => {
+		nodemon({script: 'app.js', watch: 'app'});
+		resolve();
+	});
 }
 
 const defaultTasks = [
-	complieCSS
+	CSS
 ]
 
 exports.build = build;
