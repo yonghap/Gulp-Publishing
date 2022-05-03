@@ -32,6 +32,7 @@ const CONFIG = {
 	}
 }
 
+
 /**
  * @task : EJS
  */
